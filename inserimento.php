@@ -9,7 +9,7 @@ $username = "root";
 $password  = "";
 $dbname = "autenticazione";
 
-print"<form method='post' action = 'registarti.php'>";
+print"<form method='post' action = 'ins_utente.php'>";
 print"Nome: <input type = 'text' name = 'Nome'><br><br>";
 print"Cognome: <input type = 'text' name = 'Cognome'><br><br>";
 print"Username: <input type = 'text' name = 'user'><br><br>";
