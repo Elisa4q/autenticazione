@@ -7,12 +7,12 @@
     <body>
         <?php
             $hostname = "localhost";
-            $username = "root";
-            $password = "";
+            $Username = "root";
+            $Password = "";
             $dbname = "autenticazione";
             
             //connessione al server
-        $conn = mysqli_connect($hostname, $username, $password, $dbname);
+        $conn = mysqli_connect($hostname, $Username, $Password, $dbname);
         if(!$conn)
         {
             die("ERRORE NELLA CONNESSIONE");
