@@ -35,8 +35,7 @@
             print("$Username, $Password, $Nome, $Cognome");
             print($query);
         } else {
-            print("Registrazione avvenuta con successo<br>
-                    sono state inserite $righe");
+            print("Registrazione avvenuta con successo");
         }
 
 mysqli_close($conn);
