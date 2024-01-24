@@ -7,12 +7,12 @@
     <body>
         <?php
             $hostname = "localhost";
-            $Username = "root";
-            $Password = "";
+            $username = "root";
+            $password = "";
             $dbname = "autenticazione";
             
             //connessione al server
-        $conn = mysqli_connect($hostname, $Username, $Password, $dbname);
+        $conn = mysqli_connect($hostname, $username, $password, $dbname);
         if(!$conn)
         {
             die("ERRORE NELLA CONNESSIONE");
@@ -20,19 +20,19 @@
         
         }
        //recupero dei dati dal form.html
-        $Username = $_POST['Username'];
-        $Password= $_POST['Password'];
         $Nome = $_POST['Nome'];
         $Cognome = $_POST['Cognome'];
+        $Username = $_POST['Username'];
+        $Password = $_POST['Password'];
 
-        $query = "INSERT INTO utenti(Username, Password, Nome, cognome) VALUES
-        ('$Username', '$Password', $Nome, $Cognome)";
+        $query = "INSERT INTO utenti (Nome, cognome, Username, Password) VALUES
+        ('$Nome', '$Cognome', '$Username', '$Password')";
 
         $risultato = mysqli_real_query($conn, $query);
 
         if(!$risultato) {
             print("Errore nell'inserimento");
-            print("$Username, $Password, $Nome, $Cognome");
+            print("$Nome, $Cognome, $Username, $Password");
             print($query);
         } else {
             print("Registrazione avvenuta con successo");
