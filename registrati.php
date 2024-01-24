@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html lang = "it">
-    <head></head>
+    <head>
+        <meta charset = "utf-8">
+        <title>Registrazione</title>
+    </head>
     <body>
-      <p style : "center"><strong>Registati</strong><br><br><br>
-<?php
-$hostname = "localhost";
-$username = "root";
-$password  = "";
-$dbname = "autenticazione";
+        <?php
+            $hostname = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "autenticazione";
+            
+            //connessione al server
+        $conn = mysqli_connect($hostname, $username, $password, $dbname);
+        if(!$conn)
+        {
+            die("ERRORE NELLA CONNESSIONE");
+            exit();
+        
+        }
+       //recupero dei dati dal form.html
+        $Nome = $_POST['Nome'];
+        $Cognome = $_POST['Cognome'];
+        $Username = $_POST['Username'];
+        $Password = $_POST['Password'];
 
-print"<form method='post' action = 'accedi.html'>";
-print"Nome: <input type = 'text' name = 'Nome'><br><br>";
-print"Cognome: <input type = 'text' name = 'Cognome'><br><br>";
-print"Username: <input type = 'text' name = 'user'><br><br>";
-print"Password: <input type = 'text' name = 'psw'><br><br>";
-print"<input type = 'submit' value = 'Registrati'> &nbsp; &nbsp; &nbsp;";
-print"<input type = 'reset' value = 'Reset'>";
-print"</form>";
+        $query = "INSERT INTO utenti(Nome, Cognome, Username, Password) VALUES
+        ('$Nome', '$Cognome', $Username, $Password)";
 
+        $risultato = mysqli_real_query($conn, $query);
+        $righe = mysqli_affected_rows($conn);
+
+        if(!$risultato) {
+            print("Errore nell'inserimento");
+            print("$Nome, $Cognome, $Username, $Password");
+            print($query);
+        } else {
+            print("Registrazione avvenuta con successo");
+        }
+
+mysqli_close($conn);
 ?>
 </body>
 </hmtl>
