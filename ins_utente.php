@@ -26,7 +26,7 @@
         $Cognome = $_POST['Cognome'];
 
         $query = "INSERT INTO utenti(Username, Password, Nome, cognome) VALUES
-        ('$User', '$Password', $Nome, $Cognome)";
+        ('$Username', '$Password', $Nome, $Cognome)";
 
         $risultato = mysqli_real_query($conn, $query);
 
