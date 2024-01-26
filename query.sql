@@ -3,7 +3,7 @@ create table utenti
     Nome char(20),
     Cognome char(20),
     Username char(20),
-     Password char (20) primary key
+    Password char (20) primary key
 );
 
 
