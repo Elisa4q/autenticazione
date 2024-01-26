@@ -15,7 +15,7 @@ $conn = mysqli_connect($hostname, $username, $password, $dbname);
 
     
 
-$query = "select * from home where Username = $Username && Password = $Password";
+$query = "select * from autenticazione where Username = '$Username' && Password = '$Password'";
 $risultato = mysqli_query($conn, $query);
 if(!$risultato){
     print "Errore nel comando";
