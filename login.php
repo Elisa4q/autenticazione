@@ -23,9 +23,9 @@ if(!$risultato){
     print "Errore nell'sql";
     exit();
 }
-$riga = mysqli_fetch_array($risulato);
+$riga = mysqli_fetch_array($risultato);
 if($riga){
-    print "Benvenuto". $riga('Nome'). $riga('Cognome');
+    print "Benvenuto ". $riga['Username']." ". $riga['Password'];
     } else {
         print"Username o Password errate <br><br>";
     }
