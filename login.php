@@ -5,20 +5,22 @@
       <p style : "center"><strong>Accedere</strong><br><br><br>
 <?php
 $hostname = "localhost";
-$username = "root";
-$password  = "";
+$dbuser = "root";
+$dbpassword  = "";
 $dbname = "autenticazione";
 
 //connessione al server sql
 
-$conn = mysqli_connect($hostname, $username, $password, $dbname);
+$conn = mysqli_connect($hostname, $dbuser, $dbpassword, $dbname);
 
-    
+//recupero dal POST username e password
+$Username = $_POST['Username'];
+$Password = $_POST['Password'];
 
-$query = "select * from autenticazione where Username = '$Username' && Password = '$Password'";
+$query = "select * from utenti where Username = '$Username' && Password = '$Password'";
 $risultato = mysqli_query($conn, $query);
 if(!$risultato){
-    print "Errore nel comando";
+    print "Errore nell'sql";
     exit();
 }
 $riga = mysqli_fetch_array($risulato);
